@@ -1,0 +1,9 @@
+# needed by sci-physics/root
+sys-libs/zlib minizip
+dev-libs/libpcre2 pcre16
+media-libs/gd fontconfig
+
+sci-physics/root X asimage davix examples fftw fits gdml graphviz gsl http math
+sci-physics/root minuit mysql odbc opengl postgres pythia6 pythia8 python roofit
+sci-physics/root root7 shadow sqlite ssl table tbb threads tiff tmva unuran vc
+sci-physics/root xml xrootd

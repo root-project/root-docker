@@ -1,0 +1,3 @@
+dev-libs/xxhash ~amd64
+net-libs/davix ~amd64
+sci-physics/root ~amd64
