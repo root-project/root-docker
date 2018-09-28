@@ -1,8 +1,8 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index 05f17a0..63075df 100644
+index 05f17a0..11d2cc6 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -15,21 +15,22 @@ md5sums=('17a0ab8a2e6b253f222934418705963e'
+@@ -15,21 +15,23 @@ md5sums=('17a0ab8a2e6b253f222934418705963e'
           'bdb49e626cb91b2c218193f3d36c9f91')
  
  build() {
@@ -27,6 +27,7 @@ index 05f17a0..63075df 100644
 -    make DESTDIR=$pkgdir install
 +    cd "${srcdir}/libAfterImage-${pkgver}"
 +    make DESTDIR="${pkgdir}" install
++    make DESTDIR="${pkgdir}" install.inc
  }
  
  # :mode=shellscript:
