@@ -58,7 +58,7 @@ User docker-user
 # remove build dirs
 RUN git clone https://aur.archlinux.org/libafterimage.git /tmp/libafterimage \
  && cd /tmp/libafterimage && patch -p1 -i /tmp/fix_libafterimage_pkgbuild.patch \
- && cd makepkg -sri --asdeps --needed --noconfirm \
+ && makepkg -sri --asdeps --needed --noconfirm \
  && git clone https://aur.archlinux.org/unuran.git /tmp/unuran \
  && cd /tmp/unuran && makepkg -sri --asdeps --needed --noconfirm \
  && git clone https://aur.archlinux.org/cern-vdt.git /tmp/cern-vdt \
