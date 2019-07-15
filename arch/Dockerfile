@@ -27,7 +27,7 @@ RUN sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
  && pacman-key --init \
  && pacman-key --populate archlinux \
  && useradd -ms /bin/bash docker-user \
- && pacman -Syu \
+ && pacman -Syu --noconfirm \
  && pacman --noconfirm --needed -S bash gawk gcc git freetype2 cern-vdt \
       cfitsio gcc-fortran libmariadbclient libxml2 openssl postgresql-libs \
       pythia8 fastjet hepmc lhapdf sqlite tcsh unuran vc xrootd root \
