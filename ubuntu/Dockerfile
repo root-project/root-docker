@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:18.10
 
 COPY packages packages
 
@@ -13,7 +13,7 @@ RUN cd /tmp \
  && cmake /usr/src/root \
 	-Dall=ON \
 	-Dcxx14=ON \
-	-Dfail-on-missing=ON \
+	-Dfail-on-missing=OFF \
 	-Dgnuinstall=ON \
 	-Drpath=ON \
 	-Dbuiltin_afterimage=OFF \

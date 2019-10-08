@@ -52,3 +52,7 @@ r-cran-rcpp
 r-cran-rinside
 srm-ifce-dev
 unixodbc-dev
+libxxhash-dev
+libfcgi-dev
+libboost-dev
+wget
