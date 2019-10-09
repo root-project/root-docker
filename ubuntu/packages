@@ -56,3 +56,5 @@ libxxhash-dev
 libfcgi-dev
 libboost-dev
 wget
+doxygen
+texlive-font-utils

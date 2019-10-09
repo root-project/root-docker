@@ -16,6 +16,9 @@ RUN cd /tmp \
 	-Dfail-on-missing=OFF \
 	-Dgnuinstall=ON \
 	-Drpath=ON \
+  -Droofit=ON \
+  -Droostats=ON \
+  -Dminuit2=ON \
 	-Dbuiltin_afterimage=OFF \
 	-Dbuiltin_ftgl=OFF \
 	-Dbuiltin_gl2ps=OFF \
