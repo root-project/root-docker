@@ -14,6 +14,7 @@ RUN cd /tmp \
 	-Dall=ON \
 	-Dcxx14=ON \
 	-Dfail-on-missing=OFF \
+  -Druntime_cxxmodules=OFF \
 	-Dgnuinstall=ON \
 	-Drpath=ON \
   -Droofit=ON \
@@ -44,5 +45,5 @@ RUN cd /tmp \
  && cmake --build . --target install \
  && rm -rf /tmp/* /usr/src/root
 
-ENV PYTHONPATH /usr/local/lib
+ENV PYTHONPATH /usr/local/lib:/usr/local/lib/root
 CMD root -b
