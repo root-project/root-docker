@@ -15,7 +15,7 @@ RUN cd /tmp \
 	-Dcxx14=ON \
 	-Dfail-on-missing=OFF \
   -Druntime_cxxmodules=OFF \
-	-Dgnuinstall=ON \
+	-Dgnuinstall=OFF \
 	-Drpath=ON \
   -Droofit=ON \
   -Droostats=ON \
