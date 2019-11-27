@@ -13,13 +13,13 @@ RUN cd /tmp \
  && cmake /usr/src/root \
 	-Dall=ON \
 	-Dcxx14=ON \
-	-Dfail-on-missing=OFF \
-  -Druntime_cxxmodules=OFF \
+	-Dfail-on-missing=ON \
+        -Druntime_cxxmodules=OFF \
 	-Dgnuinstall=OFF \
 	-Drpath=ON \
-  -Droofit=ON \
-  -Droostats=ON \
-  -Dminuit2=ON \
+        -Droofit=ON \
+        -Droostats=ON \
+        -Dminuit2=ON \
 	-Dbuiltin_afterimage=OFF \
 	-Dbuiltin_ftgl=OFF \
 	-Dbuiltin_gl2ps=OFF \
