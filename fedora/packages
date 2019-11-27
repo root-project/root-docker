@@ -88,6 +88,7 @@ root-unfold
 root-unuran
 root-xproof
 sqlite-devel
+xrootd-client
 xxhash-devel
 xz-devel
 zlib-devel
