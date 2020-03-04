@@ -1,6 +1,6 @@
-FROM continuumio/miniconda3
+FROM continuumio/miniconda3:4.7.2
 
-ARG ROOT_VERSION=6.18.04
+ARG ROOT_VERSION=6.20.00
 ARG PYTHON_VERSION=3.7
 
 RUN conda config --add channels conda-forge && \
