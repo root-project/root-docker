@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:4.7.2
+FROM continuumio/miniconda3:4.7.12
 
 ARG ROOT_VERSION=6.20.00
 ARG PYTHON_VERSION=3.7
