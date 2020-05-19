@@ -10,6 +10,7 @@ git
 libafterimage-dev
 libavahi-compat-libdnssd-dev
 libcfitsio-dev
+libfcgi-dev
 libfftw3-dev
 libfreetype6-dev
 libftgl-dev
@@ -31,7 +32,6 @@ libpcre++-dev
 libpng-dev
 libpq-dev
 libpythia8-dev
-libqt4-dev
 libsqlite3-dev
 libssl-dev
 libtbb-dev
@@ -41,7 +41,9 @@ libxext-dev
 libxft-dev
 libxml2-dev
 libxpm-dev
+libxxhash-dev
 libz-dev
+libzstd-dev
 locales
 lsb-release
 make
