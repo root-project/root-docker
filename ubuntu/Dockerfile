@@ -12,6 +12,8 @@ RUN cd /tmp \
  && git clone https://github.com/root-project/root /usr/src/root \
  && cmake /usr/src/root \
 	-Dall=ON \
+	-Dalien=OFF \
+	-Dcuda=OFF \
 	-Dcxx14=ON \
 	-Dfail-on-missing=ON \
 	-Dgnuinstall=ON \
@@ -37,6 +39,8 @@ RUN cd /tmp \
 	-Drfio=OFF \
 	-Dsapdb=OFF \
 	-Dsrp=OFF \
+	-Dtmva-gpu=OFF \
+	-Dvecgeom=OFF \
  && cmake --build . -- -j$(nproc) \
  && cmake --build . --target install \
  && rm -rf /tmp/* /usr/src/root
