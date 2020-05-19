@@ -1,5 +1,8 @@
 FROM ubuntu:20.04
 
+ENV ROOT_PROJECT "https://github.com/root-project/root"
+ENV ROOT_VERSION "v6-20-04"
+
 COPY packages packages
 
 RUN apt-get update -qq \
@@ -9,7 +12,9 @@ RUN apt-get update -qq \
  && rm -rf /packages /var/lib/apt/lists/*
 
 RUN cd /tmp \
- && git clone https://github.com/root-project/root /usr/src/root \
+ && git clone ${ROOT_PROJECT} /usr/src/root \
+	--branch ${ROOT_VERSION} \
+	--single-branch \
  && cmake /usr/src/root \
 	-Dall=ON \
 	-Dalien=OFF \
