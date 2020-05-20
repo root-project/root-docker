@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 
-ENV ROOT_PROJECT "https://github.com/root-project/root"
+ENV ROOT_FOLDER "/usr/src/root"
+ENV ROOT_PROJECT "https://github.com/root-project/root/archive"
 ENV ROOT_VERSION "v6-20-04"
 
 COPY packages packages
@@ -11,11 +12,13 @@ RUN apt-get update -qq \
  && localedef -i en_US -f UTF-8 en_US.UTF-8 \
  && rm -rf /packages /var/lib/apt/lists/*
 
+RUN mkdir -p ${ROOT_FOLDER} \
+ && curl -sSL "${ROOT_PROJECT}/${ROOT_VERSION}.tar.gz" | tar -xzv \
+	--directory ${ROOT_FOLDER} \
+	--strip-components=1
+
 RUN cd /tmp \
- && git clone ${ROOT_PROJECT} /usr/src/root \
-	--branch ${ROOT_VERSION} \
-	--single-branch \
- && cmake /usr/src/root \
+ && cmake ${ROOT_FOLDER} \
 	-Dall=ON \
 	-Dalien=OFF \
 	-Dcuda=OFF \
@@ -48,7 +51,7 @@ RUN cd /tmp \
 	-Dvecgeom=OFF \
  && cmake --build . -- -j$(nproc) \
  && cmake --build . --target install \
- && rm -rf /tmp/* /usr/src/root
+ && rm -rf /tmp/* ${ROOT_FOLDER}
 
 ENV PYTHONPATH /usr/local/lib
 CMD root -b

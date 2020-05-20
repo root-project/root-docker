@@ -1,4 +1,5 @@
 cmake
+curl
 davix-dev
 dcap-dev
 fonts-freefont-ttf
