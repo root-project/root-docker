@@ -1,57 +1,23 @@
 FROM ubuntu:20.04
 
-ENV ROOT_FOLDER "/usr/src/root"
-ENV ROOT_PROJECT "https://github.com/root-project/root/archive"
-ENV ROOT_VERSION "v6-20-04"
+ENV LANG=C.UTF-8
+ARG VERSION=6.20.04
+
+WORKDIR /root
 
 COPY packages packages
 
 RUN apt-get update -qq \
  && ln -sf /usr/share/zoneinfo/UTC /etc/localtime \
  && apt-get -y install $(cat packages) \
- && localedef -i en_US -f UTF-8 en_US.UTF-8 \
- && rm -rf /packages /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p ${ROOT_FOLDER} \
- && curl -sSL "${ROOT_PROJECT}/${ROOT_VERSION}.tar.gz" | tar -xzv \
-	--directory ${ROOT_FOLDER} \
-	--strip-components=1
+WORKDIR /tmp
 
-RUN cd /tmp \
- && cmake ${ROOT_FOLDER} \
-	-Dall=ON \
-	-Dalien=OFF \
-	-Dcuda=OFF \
-	-Dcxx14=ON \
-	-Dfail-on-missing=ON \
-	-Dgnuinstall=ON \
-	-Drpath=ON \
-	-Dbuiltin_afterimage=OFF \
-	-Dbuiltin_ftgl=OFF \
-	-Dbuiltin_gl2ps=OFF \
-	-Dbuiltin_glew=OFF \
-	-Dbuiltin_unuran=ON \
-	-Dbuiltin_vc=ON \
-	-Dbuiltin_vdt=ON \
-	-Dbuiltin_veccore=ON \
-	-Dbuiltin_xrootd=ON \
-	-Darrow=OFF \
-	-Dcastor=OFF \
-	-Dchirp=OFF \
-	-Dgeocad=OFF \
-	-Dglite=OFF \
-	-Dhdfs=OFF \
-	-Dmonalisa=OFF \
-	-Doracle=OFF \
-	-Dpythia6=OFF \
-	-Drfio=OFF \
-	-Dsapdb=OFF \
-	-Dsrp=OFF \
-	-Dtmva-gpu=OFF \
-	-Dvecgeom=OFF \
- && cmake --build . -- -j$(nproc) \
- && cmake --build . --target install \
- && rm -rf /tmp/* ${ROOT_FOLDER}
+COPY build.sh build.sh
 
-ENV PYTHONPATH /usr/local/lib
-CMD root -b
+RUN ./build.sh
+
+ENV PYTHONPATH=/usr/local/lib/root
+
+CMD [ "root.exe" ]
