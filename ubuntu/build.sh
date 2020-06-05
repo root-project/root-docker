@@ -88,8 +88,7 @@ BUILD_OPTIONS=(
 		-Dpgsql=ON
 		-Dpythia6=OFF
 		-Dpythia8=ON
-		-Dpyroot=ON # python was renamed to pyroot
-		-Dpython=ON # kept for backward compatibility
+		-Dpyroot=ON
 		-Dpyroot_legacy=ON # new with 6.22
 		-Dpyroot_experimental=OFF # kept for backward compatibility
 		-Dqt5web=OFF
@@ -125,4 +124,4 @@ cmake -S ${SOURCE_DIR} -B ${BINARY_DIR} ${BUILD_OPTIONS[@]}
 cmake --build ${BINARY_DIR} -- -j$(($(nproc) * 3/4))
 cmake --build ${BINARY_DIR} --target install
 
-rm -rf ${SOURCE_DIR} ${BINARY_DIR} /tmp/*
+rm -rf ${SOURCE_DIR} ${BINARY_DIR}
