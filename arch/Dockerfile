@@ -5,17 +5,22 @@ FROM archlinux:latest
 LABEL maintainer.name="Konstantin Gizdov"
 LABEL maintainer.email="arch@kge.pw"
 
+ARG compute_type
+
 # work in /tmp
 WORKDIR /tmp
 
-## Configure initial system
-# set locale to United Kingdom UTF-8
+## Configure initial system (lines 25-36)
+# enable US, DE, GB system locales
+# set default locale to United States
 # enable gnupg for root user (for pacman)
 # update keys for package signing
 # make non-root user: docker-user
 # update core databases
-# install Git (AUR packages) & root (incl. optional dependencies)
-## Clean up
+## Install packages (lines 37 - 40)
+# install CERN`s ROOT (incl. all optional dependencies)
+# make Git available as well
+## Clean up (lines 41)
 # remove unneeded system files
 RUN sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
  && sed -i 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen \
@@ -31,7 +36,8 @@ RUN sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
  && pacman -Syu --noconfirm \
  && pacman --noconfirm --needed -S bash gawk gcc git freetype2 cern-vdt \
       cfitsio gcc-fortran libmariadbclient libxml2 openssl postgresql-libs \
-      pythia8 fastjet hepmc lhapdf sqlite tcsh unuran vc z3 xrootd root \
+      pythia8 fastjet hepmc lhapdf sqlite tcsh unuran vc z3 xrootd \
+      $(if [[ $compute_type =~ [cC][uU][dD][aA] ]]; then echo root-cuda; else echo root; fi;) \
  && rm -f /var/cache/pacman/pkg/* /var/lib/pacman/sync/* /etc/pacman.d/mirrorlist.pacnew
 
 # go back to regular user
