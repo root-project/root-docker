@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
 ARG ROOT_VERSION=6.22.00
-ARG PYTHON_VERSION=3.7
+ARG PYTHON_VERSION=3.8
 
 RUN conda config --add channels conda-forge && \
     conda config --set allow_softlinks false && \
