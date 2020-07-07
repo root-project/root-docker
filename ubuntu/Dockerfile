@@ -1,11 +1,11 @@
 FROM ubuntu:20.04
 
 ENV LANG=C.UTF-8
-ARG VERSION=6.20.04
 
-WORKDIR /root
+WORKDIR /tmp/env-files
 
 COPY packages packages
+COPY sourceroot.sh sourceroot.sh
 
 RUN apt-get update -qq \
  && ln -sf /usr/share/zoneinfo/UTC /etc/localtime \
@@ -14,10 +14,8 @@ RUN apt-get update -qq \
 
 WORKDIR /tmp
 
-COPY build.sh build.sh
+RUN wget https://root.cern/download/root_v6.22.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz \
+ && tar -xzvf root_v6.22.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz \
+ && rm -f root_v6.22.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 
-RUN ./build.sh
-
-ENV PYTHONPATH=/usr/local/lib/root
-
-CMD [ "root.exe" ]
+ENTRYPOINT ["/tmp/env-files/sourceroot.sh"]
