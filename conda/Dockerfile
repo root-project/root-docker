@@ -8,3 +8,5 @@ RUN conda config --add channels conda-forge && \
     conda config --set always_copy true && \
     conda install --yes --quiet python=$PYTHON_VERSION root=$ROOT_VERSION && \
     conda clean --yes --all --force-pkgs-dirs
+
+CMD ["root", "-b"]
