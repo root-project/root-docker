@@ -8,4 +8,4 @@ COPY portage /etc/portage
 RUN emerge -NDuvt sci-physics/root \
  && rm -rf /tmp/* /usr/portage /var/tmp/portage
 
-CMD /bin/bash -l
+CMD ["root", "-b"]

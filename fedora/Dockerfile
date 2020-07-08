@@ -8,4 +8,4 @@ RUN dnf update -y \
  && dnf install -y $(cat packages) \
  && rm /packages
 
-CMD root.exe
+CMD ["root", "-b"]
