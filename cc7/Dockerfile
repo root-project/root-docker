@@ -1,5 +1,8 @@
 FROM cern/cc7-base
 
+LABEL maintainer.name="ROOT team"
+LABEL maintainer.email="root-dev@cern.ch"
+
 COPY packages packages
 
 RUN yum update -q -y \
