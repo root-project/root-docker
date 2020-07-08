@@ -8,4 +8,4 @@ RUN yum update -q -y \
  && localedef -i en_US -f UTF-8 en_US.UTF-8 \
  && rm -f /packages
 
-CMD root -b
+CMD ["root", "-b"]

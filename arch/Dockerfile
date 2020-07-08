@@ -43,5 +43,4 @@ RUN sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
 # go back to regular user
 USER docker-user
 
-# run bash at login
-CMD ["/bin/bash"]
+CMD ["root", "-b"]
