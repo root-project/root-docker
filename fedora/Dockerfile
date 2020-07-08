@@ -1,6 +1,7 @@
 FROM fedora
 
-LABEL maintainer=root-dev@cern.ch
+LABEL maintainer.name="ROOT team"
+LABEL maintainer.email="root-dev@cern.ch"
 
 COPY packages packages
 
