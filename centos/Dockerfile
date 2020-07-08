@@ -1,3 +1,5 @@
+# WARNING: this Dockerfile is unmaintained
+
 FROM centos
 
 COPY packages packages
