@@ -2,20 +2,25 @@ FROM ubuntu:20.04
 
 ENV LANG=C.UTF-8
 
-WORKDIR /tmp/env-files
+ARG ROOT_BIN=root_v6.22.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
+
+WORKDIR /opt
 
 COPY packages packages
-COPY sourceroot.sh sourceroot.sh
 
 RUN apt-get update -qq \
  && ln -sf /usr/share/zoneinfo/UTC /etc/localtime \
- && apt-get -y install $(cat packages) \
- && rm -rf /var/lib/apt/lists/*
+ && apt-get -y install $(cat packages) wget\
+ && rm -rf /var/lib/apt/lists/*\
+ && wget https://root.cern/download/${ROOT_BIN} \
+ && tar -xzvf ${ROOT_BIN} \
+ && rm -f ${ROOT_BIN} \
+ && echo /opt/root/lib >> /etc/ld.so.conf \
+ && ldconfig
 
-WORKDIR /tmp
+ENV ROOTSYS /opt/root
+ENV PATH $ROOTSYS/bin:$PATH
+ENV PYTHONPATH $ROOTSYS/lib:$PYTHONPATH
+ENV CLING_STANDARD_PCH none
 
-RUN wget https://root.cern/download/root_v6.22.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz \
- && tar -xzvf root_v6.22.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz \
- && rm -f root_v6.22.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
-
-ENTRYPOINT ["/tmp/env-files/sourceroot.sh"]
+CMD ["root", "-b"]
