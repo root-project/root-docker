@@ -1,3 +1,17 @@
+## Quick reference
+
+Maintained by: [the ROOT team](https://root.cern/) and collaborators
+
+Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
+
+## Supported tags and respective Dockerfile links
+
+* [`latest`](https://github.com/root-project/root-docker/blob/6.20.06-fedora32/fedora/Dockerfile), [`6.20.06-fedora32`](https://github.com/root-project/root-docker/blob/6.20.06-fedora32/fedora/Dockerfile)
+* [`6.22.00-conda`](https://github.com/root-project/root-docker/blob/6.22.00-conda/conda/Dockerfile)
+* [`6.20.06-arch`](https://github.com/root-project/root-docker/blob/6.20.06-arch/conda/Dockerfile)
+* [`6.20.06-centos7`](https://github.com/root-project/root-docker/blob/6.20.06-centos7/cc7/Dockerfile)
+* [`6.22.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.00-ubuntu20.04/ubuntu/Dockerfile)
+
 ## Getting started
 
 The ROOT team provides several Docker images. In order to run containers, you must [have Docker installed](https://www.docker.com/community-edition#/download).
@@ -13,12 +27,7 @@ The `-v` option tells Docker to mount the home directory (`~`) to `/userhome` in
 [Configuring Docker for Windows Shared Drives / Volume Mounting with AD](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/)
 [More about mounting host directories in the container.](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume)
 
-### Graphics (Optional)
-##### Windows
-To enable graphics, you must have [Xming](https://sourceforge.net/projects/xming/) installed. Make sure Xming is whitelisted in the Windows firewall when prompted. After installing Xming, white-list the IP-address of the Docker containers in Xming by running the following command in PowerShell as administrator: 
-``Add-Content 'C:\Program Files (x86)\Xming\X0.hosts' "`r`n10.0.75.2"`` 
-Restart Xming and start the container with the following command: 
-`docker run --rm -it -e DISPLAY=10.0.75.1:0 rootproject/root`
+### Enabling graphics
 
 ##### Linux
 To use graphics, make sure you are in an X11 session and run the following command: 
@@ -32,10 +41,11 @@ This will grab your IP address on the local network. Run `echo $ip` to make sure
 This will start XQuartz and whitelist your local IP address. Finally, you can start up ROOT with the following command:
 `docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$ip:0 rootproject/root`
 
-## Tags
-
-ROOT Docker images come in various flavours. You can see all available tags [on Docker Hub](https://hub.docker.com/r/rootproject/root/tags).
+##### Windows
+To enable graphics, you must have [Xming](https://sourceforge.net/projects/xming/) installed. Make sure Xming is whitelisted in the Windows firewall when prompted. After installing Xming, white-list the IP-address of the Docker containers in Xming by running the following command in PowerShell as administrator: 
+``Add-Content 'C:\Program Files (x86)\Xming\X0.hosts' "`r`n10.0.75.2"`` 
+Restart Xming and start the container with the following command: 
+`docker run --rm -it -e DISPLAY=10.0.75.1:0 rootproject/root`
 
 ## Examples
 [See GitHub for example Dockerfiles.](https://github.com/root-project/docker-examples)
-
