@@ -31,7 +31,7 @@ The `-v` option tells Docker to mount the home directory (`~`) to `/userhome` in
 
 ##### Linux
 To use graphics, make sure you are in an X11 session and run the following command: 
-`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it --user $(id -u) rootproject/root`
+`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it --user $(id -u) rootproject/root root`
 
 ##### OSX
 To use graphics on OSX, make sure [XQuarz](https://www.xquartz.org/) is installed. After installing, open XQuartz, and go to XQuartz, Preferences, select the Security tab, and tick the box "Allow connections from network clients". Then exit XQuarz. Afterwards, open a terminal and run the following commands:
