@@ -3,7 +3,7 @@ FROM continuumio/miniconda3
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
 
-ARG ROOT_VERSION=6.22.00
+ARG ROOT_VERSION=6.22.02
 ARG PYTHON_VERSION=3.8
 
 RUN conda config --add channels conda-forge && \
