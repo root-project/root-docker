@@ -10,7 +10,7 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 * [`6.22.02-conda`](https://github.com/root-project/root-docker/blob/6.22.02-conda/conda/Dockerfile), [`6.22.00-conda`](https://github.com/root-project/root-docker/blob/6.22.00-conda/conda/Dockerfile)
 * [`6.22.02-arch`](https://github.com/root-project/root-docker/blob/6.22.02-arch/arch/Dockerfile), [`6.22.00-arch`](https://github.com/root-project/root-docker/blob/6.22.00-arch/conda/Dockerfile), [`6.20.06-arch`](https://github.com/root-project/root-docker/blob/6.20.06-arch/arch/Dockerfile)
 * [`6.22.02-fedora32`](https://github.com/root-project/root-docker/blob/6.22.02-fedora32/fedora/Dockerfile), [`6.22.00-fedora32`](https://github.com/root-project/root-docker/blob/6.22.00-fedora32/fedora/Dockerfile), [`6.20.06-fedora32`](https://github.com/root-project/root-docker/blob/6.20.06-fedora32/fedora/Dockerfile)
-* [`6.22.00-centos7`](https://github.com/root-project/root-docker/blob/6.22.00-centos7/cc7/Dockerfile)
+* [`6.22.02-centos7`](https://github.com/root-project/root-docker/blob/6.22.02-centos7/cc7/Dockerfile), [`6.22.00-centos7`](https://github.com/root-project/root-docker/blob/6.22.00-centos7/cc7/Dockerfile)
 
 ## Getting started
 
