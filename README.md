@@ -12,6 +12,11 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 * [`6.22.02-fedora32`](https://github.com/root-project/root-docker/blob/6.22.02-fedora32/fedora/Dockerfile), [`6.22.00-fedora32`](https://github.com/root-project/root-docker/blob/6.22.00-fedora32/fedora/Dockerfile), [`6.20.06-fedora32`](https://github.com/root-project/root-docker/blob/6.20.06-fedora32/fedora/Dockerfile)
 * [`6.22.02-centos7`](https://github.com/root-project/root-docker/blob/6.22.02-centos7/cc7/Dockerfile), [`6.22.00-centos7`](https://github.com/root-project/root-docker/blob/6.22.00-centos7/cc7/Dockerfile)
 
+### Supported C++ standards
+
+Tags `*-centos7` and `*-ubuntu20.04` (the default tag) come with ROOT compiled with C++11 support.
+Tags `*-fedora32` have C++14 support. Tags `*-arch` and `*-conda` have C++17 support.
+
 ## Getting started
 
 The ROOT team provides several Docker images. In order to run containers, you must [have Docker installed](https://www.docker.com/community-edition#/download).
