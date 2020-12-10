@@ -3,7 +3,7 @@ FROM condaforge/miniforge3
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
 
-ARG ROOT_VERSION=6.22.02
+ARG ROOT_VERSION=6.22.06
 ARG PYTHON_VERSION=3.8
 
 RUN apt-get update && apt-get install --yes libglu1-mesa-dev freeglut3-dev mesa-common-dev && apt-get clean && \
