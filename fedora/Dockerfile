@@ -1,4 +1,4 @@
-FROM fedora
+FROM fedora:33
 
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
