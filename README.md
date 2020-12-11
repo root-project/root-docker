@@ -16,7 +16,7 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 ### Supported C++ standards
 
 Tags `*-centos7` and `*-ubuntu20.04` (the default tag) come with ROOT compiled with C++11 support.
-Tags `*-fedora32` have C++14 support. Tags `*-arch` and `*-conda` have C++17 support.
+Tags `*-fedora3[2,3]` have C++14 support. Tags `*-arch` and `*-conda` have C++17 support.
 
 ## Getting started
 
