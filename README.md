@@ -50,7 +50,7 @@ To use graphics on OSX, make sure [XQuarz](https://www.xquartz.org/) is installe
 This will grab your IP address on the local network. Run `echo $ip` to make sure it was successfull. If nothing is displayed, replace `en0` with `en1` or a higher number in the command.
 `xhost + $ip`
 This will start XQuartz and whitelist your local IP address. Finally, you can start up ROOT with the following command:
-`docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$ip:0 rootproject/root`
+`docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$ip:0 rootproject/root root`
 
 ##### Windows
 To enable graphics, you must have [Xming](https://sourceforge.net/projects/xming/) installed. Make sure Xming is whitelisted in the Windows firewall when prompted. After installing Xming, white-list the IP-address of the Docker containers in Xming by running the following command in PowerShell as administrator: 
