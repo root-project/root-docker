@@ -3,8 +3,8 @@ FROM condaforge/miniforge3
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
 
-ARG ROOT_VERSION=6.22.08
-ARG PYTHON_VERSION=3.8
+ARG ROOT_VERSION=6.24.00
+ARG PYTHON_VERSION=3.9
 
 RUN apt-get update && apt-get install --yes libglu1-mesa-dev freeglut3-dev mesa-common-dev && apt-get clean && \
     conda config --set allow_softlinks false && \
