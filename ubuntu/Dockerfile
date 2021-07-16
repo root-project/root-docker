@@ -5,7 +5,7 @@ LABEL maintainer.email="root-dev@cern.ch"
 
 ENV LANG=C.UTF-8
 
-ARG ROOT_BIN=root_v6.24.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
+ARG ROOT_BIN=root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 
 WORKDIR /opt
 
