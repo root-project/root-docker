@@ -16,9 +16,14 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 
 ### Supported C++ standards
 
+Different images provide different compilers and a ROOT installation built with different C++ standards.
+
 The `latest` tag and the `*-ubuntu20.04` tags (starting from ROOT 6.24) have C++14 support: their ROOT is compiled with that C++ standard.
+
 Tags `*-arch`, `*-conda` and `*-fedora34` have C++17 support.
+
 Tags `*-fedora3[2,3]` have C++14 support.
+
 Tags `*-ubuntu20.04` (up to ROOT 6.22) and `*-centos7` come with ROOT compiled with C++11 support.
 
 ## Getting started
