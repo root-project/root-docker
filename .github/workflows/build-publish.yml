@@ -15,10 +15,13 @@ jobs:
       IMAGE_NAME: root-project/root
       
     steps:
-      - name: Set image name
+      - name: Set Image Name
         run: |
           echo "IMAGE_NAME=${{ env.GITHUB_REPOSITORY_OWNER }}/root" >> $GITHUB_ENV
-          echo "IMAGE_NAME = $IMAGE_NAME"
+
+      - name: Print Image Name
+        run: |
+          echo "IMAGE_NAME = ${{ env.IMAGE_NAME }}"
 
       - name: Checkout repository
         uses: actions/checkout@v2
