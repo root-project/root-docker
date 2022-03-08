@@ -18,7 +18,7 @@ jobs:
       - name: Set image name
         run: |
           echo "::set-env name=IMAGE_NAME::${{ env.GITHUB_REPOSITORY_OWNER }}/root"
-          run: echo "IMAGE_NAME = $IMAGE_NAME"
+          echo "IMAGE_NAME = $IMAGE_NAME"
 
       - name: Checkout repository
         uses: actions/checkout@v2
