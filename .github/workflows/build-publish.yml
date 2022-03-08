@@ -4,10 +4,6 @@ name: Build and Publish Docker Image
 on:
   workflow_dispatch:
 
-env:
-  IMAGE_NAME: ${{ env.GITHUB_REPOSITORY_OWNER }}/root
-
-
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
@@ -15,6 +11,9 @@ jobs:
       contents: read
       packages: write
 
+    env:
+      IMAGE_NAME: ${{ env.GITHUB_REPOSITORY_OWNER }}/root
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
