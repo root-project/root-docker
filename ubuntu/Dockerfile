@@ -2,6 +2,8 @@ FROM ubuntu:20.04
 
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
+# TODO: replace fork with original repository
+LABEL org.opencontainers.image.source="https://github.com/lobis/root-docker" 
 
 ENV LANG=C.UTF-8
 
