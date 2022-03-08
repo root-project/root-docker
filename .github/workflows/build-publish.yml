@@ -66,3 +66,52 @@ jobs:
           tags: ${{ env.IMAGE_NAME_WITH_TAGS }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
+  build-and-push-fedora-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - root-version: 6.24.06
+            fedora-version: 35
+          - root-version: 6.22.08
+            fedora-version: 34
+          - root-version: 6.22.06
+            fedora-version: 33
+
+    env:
+      IMAGE_NAME_WITH_TAGS: ghcr.io/${{ github.repository_owner }}/root:${{ matrix.root-version }}-fedora${{ matrix.fedora-version }}
+
+    steps:
+      - name: Add 'latest' tag
+        if: ${{ matrix.fedora-version == '35' }}
+        run: |
+          echo "IMAGE_NAME_WITH_TAGS=${{ env.IMAGE_NAME_WITH_TAGS }},ghcr.io/${{ github.repository_owner }}/root:latest" >> $GITHUB_ENV
+
+      - name: Print Image name with tag(s)
+        run: |
+          echo "Image Names with tag: ${{ env.IMAGE_NAME_WITH_TAGS }}"
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to the GitHub Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_WRITE_TOKEN }}
+
+      - name: Build and Push Image
+        uses: docker/build-push-action@v2
+        with:
+          context: fedora/
+          pull: true
+          push: true
+          build-args: |
+            FEDORA_VERSION=${{ matrix.fedora-version }}
+          tags: ${{ env.IMAGE_NAME_WITH_TAGS }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
