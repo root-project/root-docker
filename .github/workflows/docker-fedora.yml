@@ -3,7 +3,7 @@ name: Build and Publish Fedora Image
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Build and Publish All Images"]
+    workflows: ["Trigger Build and Publish All Images"]
     types:
       - completed
 
