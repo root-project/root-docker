@@ -12,13 +12,9 @@ jobs:
       packages: write
 
     env:
-      IMAGE_NAME: root-project/root
+      IMAGE_NAME: ${{ github.repository_owner }}/root
       
     steps:
-      - name: Set Image Name
-        run: |
-          echo "IMAGE_NAME=${{ github.repository_owner }}/root" >> $GITHUB_ENV
-
       - name: Print Image Name
         run: |
           echo "IMAGE_NAME = ${{ env.IMAGE_NAME }}"
