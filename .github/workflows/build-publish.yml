@@ -66,6 +66,7 @@ jobs:
           tags: ${{ env.IMAGE_NAME_WITH_TAGS }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
+
   build-and-push-fedora-image:
     runs-on: ubuntu-latest
     permissions:
@@ -115,3 +116,7 @@ jobs:
           tags: ${{ env.IMAGE_NAME_WITH_TAGS }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
+
+      - name: Test ROOT Version
+        run: |
+          docker run ${{ env.IMAGE_NAME_WITH_TAGS }} root-config --version
