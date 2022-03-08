@@ -65,4 +65,4 @@ jobs:
             UBUNTU_VERSION=${{ matrix.ubuntu-version }}
           tags: ${{ env.IMAGE_NAME_WITH_TAGS }}
           labels: |
-            org.opencontainers.image.source=${{ github.repositoryUrl }}
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
