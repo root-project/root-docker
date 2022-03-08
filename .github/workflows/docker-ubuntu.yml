@@ -2,6 +2,10 @@ name: Build and Publish Ubuntu Image (from binaries)
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Build and Publish All Images"]
+    types:
+      - completed
 
 jobs:
   build-and-push-ubuntu-image:
@@ -65,4 +69,5 @@ jobs:
       - name: Add 'latest' tag
         if: ${{ matrix.root-version == '6.26.00' }}
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/root:latest
+          docker image tag ${{ env.IMAGE_NAME_WITH_TAG }} ghcr.io/${{ github.repository_owner }}/root:latest
+          docker push

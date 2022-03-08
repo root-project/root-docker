@@ -1,0 +1,13 @@
+name: Build and Publish All Images
+
+on:
+  workflow_dispatch:
+
+jobs:
+  exit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print
+        run: |
+          echo "This is a way to start multiple workflows from manually activating one"
