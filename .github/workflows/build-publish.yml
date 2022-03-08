@@ -16,13 +16,13 @@ jobs:
         ubuntu-version: [20.04]
 
     env:
-      IMAGE_NAME_WITH_TAGS: ${{ github.repository_owner }}/root:${{ matrix.root-version }}-ubuntu${{ matrix.ubuntu-version }}
+      IMAGE_NAME_WITH_TAGS: ghcr.io/${{ github.repository_owner }}/root:${{ matrix.root-version }}-ubuntu${{ matrix.ubuntu-version }}
       
     steps:
       - name: Add 'latest' tag if applicable
         if: ${{ matrix.root-version == '6.26.00' }}
         run: |
-          echo "IMAGE_NAME_WITH_TAGS=${{ env.IMAGE_NAME_WITH_TAGS }},${{ github.repository_owner }}/root:latest" >> $GITHUB_ENV
+          echo "IMAGE_NAME_WITH_TAGS=${{ env.IMAGE_NAME_WITH_TAGS }},ghcr.io/${{ github.repository_owner }}/root:latest" >> $GITHUB_ENV
 
       - name: Print Image name with tag(s)
         run: |
