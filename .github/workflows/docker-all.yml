@@ -1,4 +1,4 @@
-name: Build and Publish All Images
+name: Trigger Build and Publish All Images
 
 on:
   workflow_dispatch:
