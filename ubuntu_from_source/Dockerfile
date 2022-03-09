@@ -11,7 +11,7 @@ COPY packages packages
 
 RUN apt-get update -qq && \
     ln -sf /usr/share/zoneinfo/UTC /etc/localtime && \
-    apt-get -y install $(cat packages) wget && \
+    apt-get -y install $(cat packages) wget git && \
     apt-get autoremove -y && \
     apt-get clean -y && \
     rm -rf /var/cache/apt/archives/* && \
