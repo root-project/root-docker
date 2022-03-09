@@ -1,0 +1,57 @@
+name: CentOS
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Trigger Build and Publish All Images"]
+    types:
+      - completed
+
+jobs:
+  build-and-push-centos-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - root-version: v6-26-00
+            cpp-standard: 17
+            centos-version: 7
+
+    env:
+      IMAGE_NAME_WITH_TAG: ghcr.io/${{ github.repository_owner }}/root:${{ matrix.root-version }}-centos${{ matrix.centos-version }}-cpp${{ matrix.cpp-standard }}-from-source
+
+    steps:
+      - name: Print Image name with tag(s)
+        run: |
+          echo "Image name with tag: ${{ env.IMAGE_NAME_WITH_TAG }}"
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to the GitHub Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_WRITE_TOKEN }}
+
+      - name: Build and Push Image
+        uses: docker/build-push-action@v2
+        with:
+          context: centos_from_source/
+          pull: true
+          push: true
+          build-args: |
+            ROOT_VERSION=${{ matrix.root-version }}
+            CENTOS_VERSION=${{ matrix.centos-version }}
+            CMAKE_CXX_STANDARD=${{ matrix.cpp-standard }}
+          tags: ${{ env.IMAGE_NAME_WITH_TAG }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+
+      - name: Test ROOT Version
+        run: |
+          docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version

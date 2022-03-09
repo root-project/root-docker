@@ -18,13 +18,14 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists/*
 
 ENV ROOTSYS /opt/root
+ENV PATH $ROOTSYS/bin:$PATH
+ENV PYTHONPATH $ROOTSYS/lib:$PYTHONPATH
+ENV CLING_STANDARD_PCH none
 
 RUN echo $ROOTSYS/lib >> /etc/ld.so.conf && \
     ldconfig
 
 RUN yes | unminimize
-
-ARG ROOT_VERSION=root_v6.26.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 
 ARG CMAKE_CXX_STANDARD=17
 ARG ROOT_VERSION=master
@@ -36,11 +37,6 @@ RUN git clone https://github.com/root-project/root.git $ROOTSYS/source && \
     cmake $ROOTSYS/source -DCMAKE_INSTALL_PREFIX=$ROOTSYS -DCMAKE_CXX_STANDARD=$CMAKE_CXX_STANDARD -Dbuiltin_afterimage=ON && \
     make -j$(nproc) install && \
     rm -rf $ROOTSYS/build $ROOTSYS/source
-
-ENV ROOTSYS /opt/root
-ENV PATH $ROOTSYS/bin:$PATH
-ENV PYTHONPATH $ROOTSYS/lib:$PYTHONPATH
-ENV CLING_STANDARD_PCH none
 
 WORKDIR $ROOTSYS
 
