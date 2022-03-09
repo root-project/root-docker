@@ -1,4 +1,4 @@
-name: Build and Publish Ubuntu Image (from binaries)
+name: Ubuntu (from binaries)
 
 on:
   workflow_dispatch:
