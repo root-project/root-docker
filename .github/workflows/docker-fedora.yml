@@ -1,4 +1,4 @@
-name: Build and Publish Fedora Image
+name: Fedora
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: Build and Publish Ubuntu Image (from source)
+name: Ubuntu (from source)
 
 on:
   workflow_dispatch:
