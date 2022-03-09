@@ -1,4 +1,4 @@
-name: CentOS
+name: CentOS (from source)
 
 on:
   workflow_dispatch:
