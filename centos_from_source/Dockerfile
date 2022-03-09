@@ -45,6 +45,8 @@ RUN cd /tmp && \
 	-Dgeocad=OFF \
 	-Dglite=OFF \
 	-Dhdfs=OFF \
+	-Dtesting=ON \
+	-Droottest=ON
 	-Dmonalisa=OFF \
 	-Doracle=OFF \
 	-Dpythia6=OFF \
