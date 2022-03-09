@@ -2,10 +2,6 @@ name: CentOS
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Trigger Build and Publish All Images"]
-    types:
-      - completed
 
 jobs:
   build-and-push-centos-image:
