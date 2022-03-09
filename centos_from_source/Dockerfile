@@ -23,6 +23,7 @@ ENV CLING_STANDARD_PCH none
 RUN cd /tmp && \
 	git clone https://github.com/root-project/root.git $ROOTSYS/source && \
 	cd $ROOTSYS/source && git reset --hard ${ROOT_VERSION} && \
+    	mkdir -p $ROOTSYS/build &&  cd $ROOTSYS/build && \
 	cmake3 $ROOTSYS/source \
 	-DCMAKE_INSTALL_PREFIX=$ROOTSYS -DCMAKE_CXX_STANDARD=$CMAKE_CXX_STANDARD \
 	-Dall=ON \
