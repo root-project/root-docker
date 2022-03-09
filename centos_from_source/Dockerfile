@@ -27,7 +27,6 @@ RUN cd /tmp && \
 	cmake3 $ROOTSYS/source \
 	-DCMAKE_INSTALL_PREFIX=$ROOTSYS -DCMAKE_CXX_STANDARD=$CMAKE_CXX_STANDARD \
 	-Dall=ON \
-	-Dcxx11=ON \
 	-Dfail-on-missing=ON \
 	-Dgnuinstall=ON \
 	-Drpath=ON \
