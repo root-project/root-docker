@@ -1,6 +1,9 @@
-ARG ROOT_VERSION=master
+# Ubuntu image tags as they appear here: https://hub.docker.com/_/ubuntu. Example: UBUNTU_VERSION=20.04
 ARG UBUNTU_VERSION=20.04
-ARG CMAKE_CXX_STANDARD=17
+# ROOT version in the MAJOR.MINOR.REVISION format. Example: ROOT_VERSION=6.26.00
+ARG ROOT_VERSION
+# C++ standard to compile ROOT. Example: CMAKE_CXX_STANDARD=17
+ARG CMAKE_CXX_STANDARD
 
 FROM ubuntu:$UBUNTU_VERSION
 
@@ -30,8 +33,11 @@ RUN echo $ROOTSYS/lib >> /etc/ld.so.conf && \
 RUN yes | unminimize
 
 # clone build and install
+ARG ROOT_VERSION=6.26.00
+ARG CMAKE_CXX_STANDARD=17
+
 RUN git clone https://github.com/root-project/root.git $ROOTSYS/source \
-    && cd $ROOTSYS/source && git reset --hard ${ROOT_VERSION} \
+    && cd $ROOTSYS/source && git reset --hard $ROOT_VERSION \
     && mkdir -p $ROOTSYS/build &&  cd $ROOTSYS/build \
     && cmake $ROOTSYS/source \
     -DCMAKE_INSTALL_PREFIX=$ROOTSYS \
