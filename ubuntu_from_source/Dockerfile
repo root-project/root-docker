@@ -36,8 +36,15 @@ RUN yes | unminimize
 ARG ROOT_VERSION=6.26.00
 ARG CMAKE_CXX_STANDARD=17
 
-RUN ROOT_GIT_REVISION="v$(echo $ROOT_VERSION | cut -d. -f1)-$(echo $ROOT_VERSION | cut -d. -f2)-$(echo $ROOT_VERSION | cut -d. -f3)" \
-    && git clone --branch $ROOT_GIT_REVISION --depth=1 https://github.com/root-project/root.git $ROOTSYS/source \
+RUN ROOT_GIT_URL=https://github.com/root-project/root.git \
+    && if [ -z "$(git ls-remote --heads $ROOT_GIT_URL $ROOT_VERSION)" ] ; then \
+    export ROOT_GIT_REVISION="v$(echo $ROOT_VERSION | cut -d. -f1)-$(echo $ROOT_VERSION | cut -d. -f2)-$(echo $ROOT_VERSION | cut -d. -f3)" \
+    ; else \
+    export ROOT_GIT_REVISION=$ROOT_VERSION \
+    ; fi \
+    # Above lines will set ROOT_GIT_REVISION to ROOT_VERSION argument if it corresponds to a valid branch name (such as ROOT_VERSION=master),
+    # otherwise it will assume its a semantic version string and try to convert it into the tag format (such as 6.26.00 -> v6-26-00)
+    && git clone --branch $ROOT_GIT_REVISION --depth=1 $ROOT_GIT_URL $ROOTSYS/source \
     && cd $ROOTSYS/source \
     && mkdir -p $ROOTSYS/build &&  cd $ROOTSYS/build \
     && cmake $ROOTSYS/source \
