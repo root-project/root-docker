@@ -1,4 +1,6 @@
+ARG ROOT_VERSION=master
 ARG UBUNTU_VERSION=20.04
+ARG CMAKE_CXX_STANDARD=17
 
 FROM ubuntu:$UBUNTU_VERSION
 
@@ -26,9 +28,6 @@ RUN echo $ROOTSYS/lib >> /etc/ld.so.conf && \
     ldconfig
 
 RUN yes | unminimize
-
-ARG CMAKE_CXX_STANDARD=17
-ARG ROOT_VERSION=master
 
 # clone build and install
 RUN git clone https://github.com/root-project/root.git $ROOTSYS/source \
