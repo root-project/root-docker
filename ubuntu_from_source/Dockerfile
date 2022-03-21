@@ -36,7 +36,8 @@ RUN yes | unminimize
 ARG ROOT_VERSION=6.26.00
 ARG CMAKE_CXX_STANDARD=17
 
-RUN git clone --branch ${ROOT_VERSION} --depth=1 https://github.com/root-project/root.git $ROOTSYS/source \
+RUN ROOT_GIT_REVISION="v$(echo $ROOT_VERSION | cut -d. -f1)-$(echo $ROOT_VERSION | cut -d. -f2)-$(echo $ROOT_VERSION | cut -d. -f3)" \
+    && git clone --branch $ROOT_GIT_REVISION --depth=1 https://github.com/root-project/root.git $ROOTSYS/source \
     && cd $ROOTSYS/source \
     && mkdir -p $ROOTSYS/build &&  cd $ROOTSYS/build \
     && cmake $ROOTSYS/source \
