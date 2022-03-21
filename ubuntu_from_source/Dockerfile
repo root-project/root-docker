@@ -41,6 +41,6 @@ RUN git clone https://github.com/root-project/root.git $ROOTSYS/source \
     && make -j$(nproc) install \
     && rm -rf $ROOTSYS/build $ROOTSYS/source
 
-WORKDIR $ROOTSYS
+WORKDIR /opt
 
 CMD ["root", "-b"]
