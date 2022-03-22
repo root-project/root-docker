@@ -37,6 +37,8 @@ RUN ROOT_GIT_URL=https://github.com/root-project/root.git \
     # Above lines will set ROOT_GIT_REVISION to ROOT_VERSION argument if it corresponds to a valid branch name (such as ROOT_VERSION=master),
     # otherwise it will assume its a semantic version string and try to convert it into the tag format (such as 6.26.00 -> v6-26-00)
     && git clone --branch $ROOT_GIT_REVISION --depth=1 $ROOT_GIT_URL /tmp/source \
+    # Temporary patch (https://github.com/lobis/root-docker/pull/1)
+    && wget https://raw.githubusercontent.com/eguiraud/root/67f85d5d57af0498245e05d7ab4c9e70c8e85f38/CMakeLists.txt -O /tmp/source/CMakeLists.txt \
     && cd /tmp/source \
     && mkdir -p /tmp/build &&  cd /tmp/build \
     && cmake /tmp/source \
