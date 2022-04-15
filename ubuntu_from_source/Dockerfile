@@ -1,5 +1,5 @@
-# Ubuntu image tags as they appear here: https://hub.docker.com/_/ubuntu. Example: UBUNTU_VERSION=20.04
-ARG UBUNTU_VERSION=20.04
+# Ubuntu image tags as they appear here: https://hub.docker.com/_/ubuntu. Example: UBUNTU_VERSION=22.04
+ARG UBUNTU_VERSION=22.04
 # ROOT version in the MAJOR.MINOR.REVISION format or a https://github.com/root-project/root branch name / tag. Example: ROOT_VERSION=6.26.00
 ARG ROOT_VERSION
 # C++ standard to compile ROOT. Example: CMAKE_CXX_STANDARD=17
