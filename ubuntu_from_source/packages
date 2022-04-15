@@ -27,7 +27,6 @@ libmysqlclient-dev
 libpcre++-dev
 libpng-dev
 libpq-dev
-libpythia8-dev
 libsqlite3-dev
 libssl-dev
 libtbb-dev
