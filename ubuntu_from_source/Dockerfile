@@ -25,7 +25,8 @@ RUN apt-get update -qq && \
 RUN yes | unminimize
 
 # clone build and install
-ARG ROOT_VERSION=6.25.02
+ARG ROOT_VERSION=latest-stable
+
 ARG CMAKE_CXX_STANDARD=17
 
 RUN ROOT_GIT_URL=https://github.com/root-project/root.git \
