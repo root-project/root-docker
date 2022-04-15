@@ -1,11 +1,10 @@
-# Ubuntu image tags as they appear here: https://hub.docker.com/_/ubuntu. Example: UBUNTU_VERSION=22.04
-ARG UBUNTU_VERSION=22.04
+
 # ROOT version in the MAJOR.MINOR.REVISION format or a https://github.com/root-project/root branch name / tag. Example: ROOT_VERSION=6.26.00
 ARG ROOT_VERSION
 # C++ standard to compile ROOT. Example: CMAKE_CXX_STANDARD=17
 ARG CMAKE_CXX_STANDARD
 
-FROM ubuntu:$UBUNTU_VERSION
+FROM ubuntu:22.04
 
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
