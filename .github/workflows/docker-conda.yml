@@ -6,6 +6,9 @@ on:
     workflows: ["Trigger Build and Publish All Images"]
     types:
       - completed
+  push:
+    paths:
+      - conda/**
 
 jobs:
   build-and-push-conda-image:

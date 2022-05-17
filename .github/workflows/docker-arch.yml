@@ -6,6 +6,9 @@ on:
     workflows: ["Trigger Build and Publish All Images"]
     types:
       - completed
+  push:
+    paths:
+      - arch/**
 
 jobs:
   build-and-push-arch-image:
