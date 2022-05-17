@@ -1,4 +1,4 @@
-name: Ubuntu (from binaries)
+name: Ubuntu
 
 on:
   workflow_dispatch:
