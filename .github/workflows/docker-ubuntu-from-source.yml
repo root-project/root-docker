@@ -2,6 +2,19 @@ name: Ubuntu (from source)
 
 on:
   workflow_dispatch:
+    inputs:
+      root-version-major:
+        required: true
+        description: ROOT Major version number (string) according to `Major.Minor.Patch`` schema
+        default: "6"
+      root-version-minor:
+        required: true
+        description: ROOT Minor version number (string) according to `Major.Minor.Patch`` schema
+        default: "26"
+      root-version-patch:
+        required: true
+        description: ROOT Patch version number (string) according to `Major.Minor.Patch`` schema
+        default: "02"
 
 jobs:
   build-and-push-ubuntu-image:
@@ -9,15 +22,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    strategy:
-      matrix:
-        include:
-          - root-version: v6-26-00
-            cpp-standard: 17
-            ubuntu-version: 20.04
 
     env:
-      IMAGE_NAME_WITH_TAG: ghcr.io/${{ github.repository_owner }}/root:${{ matrix.root-version }}-ubuntu${{ matrix.ubuntu-version }}-cpp${{ matrix.cpp-standard }}-from-source
+      ROOT_VERSION_STRING: ${{ github.event.inputs.root-version-major }}.${{ github.event.inputs.root-version-minor }}.${{ github.event.inputs.root-version-patch }}
 
     steps:
       - name: Print Image name with tag(s)
@@ -41,9 +48,7 @@ jobs:
           pull: true
           push: true
           build-args: |
-            ROOT_VERSION=${{ matrix.root-version }}
-            CMAKE_CXX_STANDARD=${{ matrix.cpp-standard }}
-            UBUNTU_VERSION=${{ matrix.ubuntu-version }}
-          tags: ${{ env.IMAGE_NAME_WITH_TAG }}
+            ROOT_VERSION=${{ env.ROOT_VERSION_STRING }}
+          tags: ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION_STRING }}-ubuntu-from-source
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
