@@ -49,5 +49,6 @@ jobs:
 
       - name: Add additional tag to image and push it
         run: |
-          docker tag ${{ env.IMAGE_NAME_WITH_TAG }} ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION }}-fedora${{ env.OS_VERSION_ID }}
-          docker push ${{ env.IMAGE_NAME_WITH_TAG }}
+          export IMAGE_NAME_WITH_NEW_TAG=ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION }}-fedora${{ env.OS_VERSION_ID }}
+          docker tag ${{ env.IMAGE_NAME_WITH_TAG }} $IMAGE_NAME_WITH_NEW_TAG
+          docker push $IMAGE_NAME_WITH_NEW_TAG
