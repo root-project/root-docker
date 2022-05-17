@@ -5,15 +5,15 @@ on:
     inputs:
       root-version-major:
         required: true
-        description: ROOT Major version number (string) according to `Major.Minor.Patch` schema
+        description: ROOT Major version number (string) according to **Major.Minor.Patch** schema
         default: "6"
       root-version-minor:
         required: true
-        description: ROOT Minor version number (string) according to `Major.Minor.Patch` schema
+        description: ROOT Minor version number (string) according to **Major.Minor.Patch** schema
         default: "26"
       root-version-patch:
         required: true
-        description: ROOT Patch version number (string) according to `Major.Minor.Patch` schema
+        description: ROOT Patch version number (string) according to **Major.Minor.Patch** schema
         default: "02"
 
 jobs:
