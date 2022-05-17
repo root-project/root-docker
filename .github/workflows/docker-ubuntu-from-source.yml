@@ -15,6 +15,9 @@ on:
         required: true
         description: ROOT Patch version number (string) according to **Major.Minor.Patch** schema
         default: "02"
+  push:
+    paths:
+      - ubuntu_from_source/**
 
 jobs:
   build-and-push-ubuntu-image:
