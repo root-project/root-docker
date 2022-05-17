@@ -37,11 +37,18 @@ jobs:
         with:
           context: arch/
           pull: true
-          push: true
+          push: false
           tags: ${{ env.IMAGE_NAME_WITH_TAG }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
 
-      - name: Test ROOT Version
+      - name: root version
         run: |
-          docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version
+          export ROOT_VERSION=$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version | sed -r 's/\//./g')
+          echo "ROOT_VERSION=$ROOT_VERSION" >> $GITHUB_ENV
+          echo "ROOT_VERSION=$ROOT_VERSION"
+
+      - name: Add additional tag to image and push it
+        run: |
+          docker tag ${{ env.IMAGE_NAME_WITH_TAG }} ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION }}-arch
+          docker push ${{ env.IMAGE_NAME_WITH_TAG }}
