@@ -33,17 +33,17 @@ jobs:
         with:
           context: fedora/
           pull: true
-          push: true
+          push: false
           tags: ${{ env.IMAGE_NAME_WITH_TAG }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
 
       - name: Test ROOT Version
         run: |
-          docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version
-          ROOT_VERSION=$(echo "$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version)" | sed -r 's/\//./g')"
-          echo "ROOT_VERSION=$ROOT_VERSION"
-          echo "ROOT_VERSION=$ROOT_VERSION" >> $GITHUB_ENV
+          docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version | sed -r 's/\//./g'
+          export ROOT_VERSION=$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version | sed -r 's/\//./g')
+          echo "ROOT_VERSION=${{ ROOT_VERSION }}"
+          echo "ROOT_VERSION=${{ ROOT_VERSION }}" >> $GITHUB_ENV
 
       - name: Add additional tag to image and push it
         run: |
