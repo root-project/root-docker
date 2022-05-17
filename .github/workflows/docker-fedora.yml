@@ -18,10 +18,6 @@ jobs:
       IMAGE_NAME_WITH_TAG: ghcr.io/${{ github.repository_owner }}/root:latest-fedora
 
     steps:
-      - name: Print Image name with tag(s)
-        run: |
-          echo "Image name with tag: ${{ env.IMAGE_NAME_WITH_TAG }}"
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -45,3 +41,11 @@ jobs:
       - name: Test ROOT Version
         run: |
           docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version
+          ROOT_VERSION=$(echo "$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version)" | sed -r 's/\//./g')"
+          echo "ROOT_VERSION=$ROOT_VERSION"
+          echo "ROOT_VERSION=$ROOT_VERSION" >> $GITHUB_ENV
+
+      - name: Add additional tag to image and push it
+        run: |
+          docker tag ${{ env.IMAGE_NAME_WITH_TAG }}: ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION }}-fedora
+          docker push ${{ env.IMAGE_NAME_WITH_TAG }}
