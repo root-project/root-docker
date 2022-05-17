@@ -13,18 +13,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    strategy:
-      matrix:
-        include:
-          - root-version: 6.24.06
-            fedora-version: 35
-          - root-version: 6.22.08
-            fedora-version: 34
-          - root-version: 6.22.06
-            fedora-version: 33
 
     env:
-      IMAGE_NAME_WITH_TAG: ghcr.io/${{ github.repository_owner }}/root:${{ matrix.root-version }}-fedora${{ matrix.fedora-version }}
+      IMAGE_NAME_WITH_TAG: ghcr.io/${{ github.repository_owner }}/root:latest-fedora
 
     steps:
       - name: Print Image name with tag(s)
@@ -47,8 +38,6 @@ jobs:
           context: fedora/
           pull: true
           push: true
-          build-args: |
-            FEDORA_VERSION=${{ matrix.fedora-version }}
           tags: ${{ env.IMAGE_NAME_WITH_TAG }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}

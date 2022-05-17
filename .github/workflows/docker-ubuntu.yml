@@ -41,3 +41,7 @@ jobs:
           tags: ${{ env.IMAGE_NAME_WITH_TAG }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
+
+      - name: Test ROOT Version
+        run: |
+          docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version
