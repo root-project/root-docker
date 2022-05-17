@@ -1,13 +1,11 @@
-ARG UBUNTU_VERSION=20.04
-
-FROM ubuntu:$UBUNTU_VERSION
+FROM ubuntu:22.04
 
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
 
 ENV LANG=C.UTF-8
 
-ARG ROOT_BIN=root_v6.26.00.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
+ARG ROOT_BIN=root_v6.26.02.Linux-ubuntu22-x86_64-gcc11.2.tar.gz
 
 WORKDIR /opt
 
