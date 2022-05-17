@@ -38,20 +38,16 @@ jobs:
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
 
-      - name: root version
+      - name: root version and OS version
         run: |
           export ROOT_VERSION=$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version | sed -r 's/\//./g')
-          echo "ROOT_VERSION=$ROOT_VERSION"
           echo "ROOT_VERSION=$ROOT_VERSION" >> $GITHUB_ENV
-
-      - name: OS version
-        run: |
-          export FEDORA_VERSION=$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} cat /etc/os-release | grep VERSION_ID | sed -r 's/VERSION_ID=//g' | sed -r 's/"//g')
-          echo "FEDORA_VERSION=$FEDORA_VERSION"
-          echo "FEDORA_VERSION=$FEDORA_VERSION" >> $GITHUB_ENV
+          echo "ROOT_VERSION=$ROOT_VERSION"
+          export OS_VERSION_ID=$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} cat /etc/os-release | grep VERSION_ID | sed -r 's/VERSION_ID=//g' | sed -r 's/"//g')
+          echo "OS_VERSION_ID=$OS_VERSION_ID" >> $GITHUB_ENV
+          echo "OS_VERSION_ID=$OS_VERSION_ID"
 
       - name: Add additional tag to image and push it
         run: |
-          printenv
-          docker tag ${{ env.IMAGE_NAME_WITH_TAG }} ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION }}-fedora{{ env.FEDORA_VERSION }}
+          docker tag ${{ env.IMAGE_NAME_WITH_TAG }} ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION }}-fedora${{ env.FEDORA_VERSION }}
           docker push ${{ env.IMAGE_NAME_WITH_TAG }}
