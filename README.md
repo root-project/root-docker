@@ -6,8 +6,8 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 
 ## Supported tags and respective Dockerfile links
 
-* [`latest`](https://github.com/root-project/root-docker/blob/6.26.00-ubuntu20.04/ubuntu/Dockerfile) -> [`6.26.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu20.04/ubuntu/Dockerfile), [`6.26.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.26.00-ubuntu20.04/ubuntu/Dockerfile), [`6.24.06-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.06-ubuntu20.04/ubuntu/Dockerfile), [`6.24.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.02-ubuntu20.04/ubuntu/Dockerfile), [`6.24.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.00-ubuntu20.04/ubuntu/Dockerfile), [`6.22.08-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.08-ubuntu20.04/ubuntu/Dockerfile), [`6.22.06-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.06-ubuntu20.04/ubuntu/Dockerfile), [`6.22.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.02-ubuntu20.04/ubuntu/Dockerfile), [`6.22.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.00-ubuntu20.04/ubuntu/Dockerfile), [`6.20.08-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.20.08-ubuntu20.04/ubuntu/Dockerfile)
-* [`6.26.02-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu22.04/ubuntu/Dockerfile)
+* [`latest`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu22.04/ubuntu/Dockerfile) -> [`6.26.02-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu22.04/ubuntu/Dockerfile)
+* [`6.26.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu20.04/ubuntu/Dockerfile), [`6.26.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.26.00-ubuntu20.04/ubuntu/Dockerfile), [`6.24.06-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.06-ubuntu20.04/ubuntu/Dockerfile), [`6.24.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.02-ubuntu20.04/ubuntu/Dockerfile), [`6.24.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.00-ubuntu20.04/ubuntu/Dockerfile), [`6.22.08-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.08-ubuntu20.04/ubuntu/Dockerfile), [`6.22.06-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.06-ubuntu20.04/ubuntu/Dockerfile), [`6.22.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.02-ubuntu20.04/ubuntu/Dockerfile), [`6.22.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.00-ubuntu20.04/ubuntu/Dockerfile), [`6.20.08-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.20.08-ubuntu20.04/ubuntu/Dockerfile)
 * [`6.26.00-conda`](https://github.com/root-project/root-docker/blob/6.26.00-conda/conda/Dockerfile), [`6.24.06-conda`](https://github.com/root-project/root-docker/blob/6.24.06-conda/conda/Dockerfile), [`6.24.02-conda`](https://github.com/root-project/root-docker/blob/6.24.02-conda/conda/Dockerfile), [`6.24.00-conda`](https://github.com/root-project/root-docker/blob/6.24.00-conda-3/conda/Dockerfile), [`6.22.08-conda`](https://github.com/root-project/root-docker/blob/6.22.08-conda/conda/Dockerfile), [`6.22.06-conda`](https://github.com/root-project/root-docker/blob/6.22.06-conda/conda/Dockerfile), [`6.22.02-conda`](https://github.com/root-project/root-docker/blob/6.22.02-conda/conda/Dockerfile), [`6.22.00-conda`](https://github.com/root-project/root-docker/blob/6.22.00-conda/conda/Dockerfile)
 * [`6.26.00-arch`](https://github.com/root-project/root-docker/blob/6.26.00-arch/arch/Dockerfile), [`6.24.06-arch`](https://github.com/root-project/root-docker/blob/6.24.06-arch/arch/Dockerfile), [`6.24.02-arch`](https://github.com/root-project/root-docker/blob/6.24.02-arch/arch/Dockerfile), [`6.24.00-arch`](https://github.com/root-project/root-docker/blob/6.24.00-arch/arch/Dockerfile), [`6.22.06-arch`](https://github.com/root-project/root-docker/blob/6.22.06-arch/arch/Dockerfile), [`6.22.02-arch`](https://github.com/root-project/root-docker/blob/6.22.02-arch/arch/Dockerfile), [`6.22.00-arch`](https://github.com/root-project/root-docker/blob/6.22.00-arch/conda/Dockerfile), [`6.20.06-arch`](https://github.com/root-project/root-docker/blob/6.20.06-arch/arch/Dockerfile)
 * [`6.24.06-fedora35`](https://github.com/root-project/root-docker/blob/6.24.06-fedora35/fedora/Dockerfile)
@@ -18,15 +18,14 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 
 ### Supported C++ standards
 
-Different images provide different compilers and a ROOT installation built with different C++ standards.
+It is important to compile ROOT applications with the same C++ standard as ROOT itself was compiled with.
+Different images provide ROOT installations built with different C++ standards. Here is a breakdown by tag:
 
-The `latest` tag and the `*-ubuntu20.04` tags (starting from ROOT 6.24) have C++14 support: their ROOT is compiled with that C++ standard.
-
-Tags `*-arch`, `*-conda` and `*-fedora34` have C++17 support.
-
-Tags `*-fedora3[2,3]` have C++14 support.
-
-Tags `*-ubuntu20.04` (up to ROOT 6.22) and `*-centos7` come with ROOT compiled with C++11 support.
+- `latest`, `ubuntu22.04`: C++17 support
+- `ubuntu22.04` (starting from ROOT 6.24): C+14
+- `arch`, `conda`, `fedora34`, `fedora35`: C++17
+- `fedora32`, `fedora33`: C++14
+- `ubuntu20.04` (up to ROOT 6.22), `centos7`: C++11
 
 ## Getting started
 
@@ -84,3 +83,9 @@ docker run --rm -it -e DISPLAY=10.0.75.1:0 rootproject/root
 
 ## Examples
 [See GitHub for example Dockerfiles.](https://github.com/root-project/docker-examples)
+
+## Reproducibility of these images
+
+Even though for each image we link to the Dockerfile that produced it, in several cases running that same exact Dockerfile will _not_ result in an image identical to the one we offer. Sometimes it will even result in an image with a more recent ROOT version: this is the case for images based on rolling Linux distributions such as Arch, for example.
+
+The `*_from_source` recipes, on the other hand, are expected to be fully reproducible.
