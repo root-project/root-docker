@@ -8,13 +8,11 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 
 ### Latest images
 
-* [`latest`](https://github.com/root-project/root-docker/blob/6.26.10-ubuntu22.04/ubuntu/Dockerfile) -> [`6.26.10-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.10-ubuntu22.04/ubuntu/Dockerfile)
-* [`6.26.10-conda`](https://github.com/root-project/root-docker/blob/6.26.10-conda/conda/Dockerfile)
-* [`6.26.10-arch`](https://github.com/root-project/root-docker/blob/6.26.10-arch/arch/Dockerfile)
-* [`6.26.10-fedora36`](https://github.com/root-project/root-docker/blob/6.26.10-fedora36/fedora/Dockerfile)
+* [`latest`](https://github.com/root-project/root-docker/blob/6.28.00-ubuntu22.04/ubuntu/Dockerfile) -> [`6.28.00-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.00-ubuntu22.04/ubuntu/Dockerfile)
 
 ### Archive
 
+* [`6.28.00-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.00-ubuntu22.04/ubuntu/Dockerfile)
 * [`6.26.06-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.06-ubuntu22.04/ubuntu/Dockerfile), [`6.26.04-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.04-ubuntu22.04/ubuntu/Dockerfile), [`6.26.02-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu22.04/ubuntu/Dockerfile)
 * [`6.26.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu20.04/ubuntu/Dockerfile), [`6.26.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.26.00-ubuntu20.04/ubuntu/Dockerfile), [`6.24.06-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.06-ubuntu20.04/ubuntu/Dockerfile), [`6.24.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.02-ubuntu20.04/ubuntu/Dockerfile), [`6.24.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.24.00-ubuntu20.04/ubuntu/Dockerfile), [`6.22.08-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.08-ubuntu20.04/ubuntu/Dockerfile), [`6.22.06-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.06-ubuntu20.04/ubuntu/Dockerfile), [`6.22.02-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.02-ubuntu20.04/ubuntu/Dockerfile), [`6.22.00-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.22.00-ubuntu20.04/ubuntu/Dockerfile), [`6.20.08-ubuntu20.04`](https://github.com/root-project/root-docker/blob/6.20.08-ubuntu20.04/ubuntu/Dockerfile)
 * [`6.26.06-conda`](https://github.com/root-project/root-docker/blob/6.26.06-conda/conda/Dockerfile), [`6.26.04-conda`](https://github.com/root-project/root-docker/blob/6.26.04-conda/conda/Dockerfile), [`6.26.00-conda`](https://github.com/root-project/root-docker/blob/6.26.00-conda/conda/Dockerfile), [`6.24.06-conda`](https://github.com/root-project/root-docker/blob/6.24.06-conda/conda/Dockerfile), [`6.24.02-conda`](https://github.com/root-project/root-docker/blob/6.24.02-conda/conda/Dockerfile), [`6.24.00-conda`](https://github.com/root-project/root-docker/blob/6.24.00-conda-3/conda/Dockerfile), [`6.22.08-conda`](https://github.com/root-project/root-docker/blob/6.22.08-conda/conda/Dockerfile), [`6.22.06-conda`](https://github.com/root-project/root-docker/blob/6.22.06-conda/conda/Dockerfile), [`6.22.02-conda`](https://github.com/root-project/root-docker/blob/6.22.02-conda/conda/Dockerfile), [`6.22.00-conda`](https://github.com/root-project/root-docker/blob/6.22.00-conda/conda/Dockerfile)
@@ -30,7 +28,7 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 It is important to compile ROOT applications with the same C++ standard as ROOT itself was compiled with.
 Different images provide ROOT installations built with different C++ standards. Here is a breakdown by tag:
 
-- `latest`, `ubuntu22.04`: C++17 support
+- `latest`, `ubuntu22.04`: ROOT is built with C++17
 - `ubuntu22.04` (starting from ROOT 6.24): C+14
 - `arch`, `conda`, `fedora34`, `fedora35`: C++17
 - `fedora32`, `fedora33`: C++14
