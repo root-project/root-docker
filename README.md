@@ -30,7 +30,7 @@ It is important to compile ROOT applications with the same C++ standard as ROOT 
 Different images provide ROOT installations built with different C++ standards. Here is a breakdown by tag:
 
 - `latest`, `ubuntu22.04`: ROOT is built with C++17
-- `ubuntu22.04` (starting from ROOT 6.24): C+14
+- `ubuntu22.04` (starting from ROOT 6.24): C++14
 - `arch`, `conda`, `fedora34`, `fedora35`: C++17
 - `fedora32`, `fedora33`: C++14
 - `ubuntu20.04` (up to ROOT 6.22), `centos7`: C++11
@@ -72,7 +72,7 @@ To use graphics on OSX, make sure [XQuarz](https://www.xquartz.org/) is installe
 ```
 ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 ```
-This will grab your IP address on the local network. Run `echo $ip` to make sure it was successfull. If nothing is displayed, replace `en0` with `en1` or a higher number in the command.
+This will grab your IP address on the local network. Run `echo $ip` to make sure it was successful. If nothing is displayed, replace `en0` with `en1` or a higher number in the command.
 ```
 xhost + $ip
 ```
