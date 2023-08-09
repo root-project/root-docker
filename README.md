@@ -8,7 +8,7 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 
 ### Latest images
 
-* [`latest`](https://github.com/root-project/root-docker/blob/6.28.00-ubuntu22.04/ubuntu/Dockerfile) -> [`6.28.00-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.00-ubuntu22.04/ubuntu/Dockerfile)
+* [`latest`](https://github.com/root-project/root-docker/blob/6.28.04-ubuntu22.04/ubuntu/Dockerfile) -> [`6.28.04-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.04-ubuntu22.04/ubuntu/Dockerfile)
 
 ### Archive
 
