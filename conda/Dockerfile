@@ -3,7 +3,7 @@ FROM condaforge/mambaforge
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
 
-ARG ROOT_VERSION=6.28.10
+ARG ROOT_VERSION=6.30.02
 ARG PYTHON_VERSION=3.11
 
 COPY entry_point.sh /
