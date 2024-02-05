@@ -59,39 +59,6 @@ The `-v` option tells Docker to mount the home directory (`~`) to `/userhome` in
 [Configuring Docker for Windows Shared Drives / Volume Mounting with AD](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/)
 [More about mounting host directories in the container.](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume)
 
-### Enabling graphics
-
-##### Linux
-To use graphics, make sure you are in an X11 session and run the following command:
-
-```
-docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it --user $(id -u) rootproject/root root
-```
-
-On some platforms (e.g., Arch Linux) connections to the X server must be allowed explicitly by executing `xhost local:root` or an equivalent command (see e.g. [this page](https://wiki.archlinux.org/index.php/Xhost) for more information on `xhost` and its possible security implications).
-
-##### OSX
-To use graphics on OSX, make sure [XQuarz](https://www.xquartz.org/) is installed. After installing, open XQuartz, and go to XQuartz, Preferences, select the Security tab, and tick the box "Allow connections from network clients". Then exit XQuarz. Afterwards, open a terminal and run the following commands:
-```
-ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-```
-This will grab your IP address on the local network. Run `echo $ip` to make sure it was successful. If nothing is displayed, replace `en0` with `en1` or a higher number in the command.
-```
-xhost + $ip
-```
-This will start XQuartz and whitelist your local IP address. Finally, you can start up ROOT with the following command:
-```
-docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$ip:0 rootproject/root root
-```
-
-##### Windows
-To enable graphics, you must have [Xming](https://sourceforge.net/projects/xming/) installed. Make sure Xming is whitelisted in the Windows firewall when prompted. After installing Xming, white-list the IP-address of the Docker containers in Xming by running the following command in PowerShell as administrator: 
-``Add-Content 'C:\Program Files (x86)\Xming\X0.hosts' "`r`n10.0.75.2"`` 
-Restart Xming and start the container with the following command: 
-```
-docker run --rm -it -e DISPLAY=10.0.75.1:0 rootproject/root
-```
-
 ## Examples
 [See GitHub for example Dockerfiles.](https://github.com/root-project/docker-examples)
 
