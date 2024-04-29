@@ -4,7 +4,7 @@ ARG ROOT_VERSION
 # C++ standard to compile ROOT. Example: CMAKE_CXX_STANDARD=17
 ARG CMAKE_CXX_STANDARD
 
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 LABEL maintainer.name="ROOT team"
 LABEL maintainer.email="root-dev@cern.ch"
