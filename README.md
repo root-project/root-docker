@@ -8,10 +8,11 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 
 ### Latest images
 
-* [`latest`](https://github.com/root-project/root-docker/blob/6.30.06-ubuntu23.10/ubuntu2310/Dockerfile) -> [`6.30.06-ubuntu23.10`](https://github.com/root-project/root-docker/blob/6.30.06-ubuntu23.10/ubuntu2310/Dockerfile)
+* [`latest`](https://github.com/root-project/root-docker/blob/6.32.00-ubuntu24.04/ubuntu2404/Dockerfile) -> [`6.32.00-ubuntu24.04`](https://github.com/root-project/root-docker/blob/6.32.00-ubuntu24.04/ubuntu2404/Dockerfile)
 
 ### Archive
 
+* [`6.32.00-ubuntu24.04`](https://github.com/root-project/root-docker/blob/6.32.00-ubuntu24.04/ubuntu2404/Dockerfile)
 * [`6.30.06-ubuntu23.10`](https://github.com/root-project/root-docker/blob/6.30.06-ubuntu23.10/ubuntu2310/Dockerfile)
 * [`6.30.06-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.30.06-ubuntu22.04/ubuntu/Dockerfile), [`6.30.04-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.30.04-ubuntu22.04/ubuntu/Dockerfile), [`6.30.02-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.30.02-ubuntu22.04/ubuntu/Dockerfile), [`6.28.12-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.12-ubuntu22.04/ubuntu/Dockerfile),
  [`6.28.10-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.10-ubuntu22.04/ubuntu/Dockerfile), [`6.28.04-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.04-ubuntu22.04/ubuntu/Dockerfile), [`6.28.00-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.28.00-ubuntu22.04/ubuntu/Dockerfile), [`6.26.14-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.14-ubuntu22.04/ubuntu/Dockerfile), [`6.26.10-ubuntu22.04`](https://github.com/root-project/root-docker/tree/6.26.10-ubuntu22), [`6.26.06-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.06-ubuntu22.04/ubuntu/Dockerfile), [`6.26.04-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.04-ubuntu22.04/ubuntu/Dockerfile), [`6.26.02-ubuntu22.04`](https://github.com/root-project/root-docker/blob/6.26.02-ubuntu22.04/ubuntu/Dockerfile)
