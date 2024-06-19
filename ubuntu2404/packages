@@ -7,6 +7,7 @@ fonts-freefont-ttf
 g++
 gcc
 gfortran
+git
 libafterimage-dev
 libcfitsio-dev
 libfcgi-dev
