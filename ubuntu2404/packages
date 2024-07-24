@@ -39,6 +39,7 @@ libxft-dev
 libxml2-dev
 libxpm-dev
 libxxhash-dev
+libvdt-dev
 libz-dev
 libzstd-dev
 locales
