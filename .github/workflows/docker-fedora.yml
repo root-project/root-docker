@@ -1,0 +1,57 @@
+name: Fedora
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Trigger Build and Publish All Images"]
+    types:
+      - completed
+  push:
+    paths:
+      - fedora/**
+
+jobs:
+  build-and-push-fedora-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    env:
+      IMAGE_NAME_WITH_TAG: ghcr.io/${{ github.repository_owner }}/root:latest-fedora
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to the GitHub Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_WRITE_TOKEN }}
+
+      - name: Build and Push Image
+        uses: docker/build-push-action@v2
+        with:
+          context: fedora/
+          pull: true
+          push: false
+          tags: ${{ env.IMAGE_NAME_WITH_TAG }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+
+      - name: root version and OS version
+        run: |
+          export ROOT_VERSION=$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} root-config --version | sed -r 's/\//./g')
+          echo "ROOT_VERSION=$ROOT_VERSION" >> $GITHUB_ENV
+          echo "ROOT_VERSION=$ROOT_VERSION"
+          export OS_VERSION_ID=$(docker run ${{ env.IMAGE_NAME_WITH_TAG }} cat /etc/os-release | grep VERSION_ID | sed -r 's/VERSION_ID=//g' | sed -r 's/"//g')
+          echo "OS_VERSION_ID=$OS_VERSION_ID" >> $GITHUB_ENV
+          echo "OS_VERSION_ID=$OS_VERSION_ID"
+
+      - name: Add additional tag to image and push it
+        run: |
+          export IMAGE_NAME_WITH_NEW_TAG=ghcr.io/${{ github.repository_owner }}/root:${{ env.ROOT_VERSION }}-fedora${{ env.OS_VERSION_ID }}
+          docker tag ${{ env.IMAGE_NAME_WITH_TAG }} $IMAGE_NAME_WITH_NEW_TAG
+          docker push $IMAGE_NAME_WITH_NEW_TAG
