@@ -5,8 +5,7 @@ LABEL maintainer.email="root-dev@cern.ch"
 
 ENV LANG=C.UTF-8
 
-ARG ROOT_BIN=root_v6.32.04.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
-
+ARG ROOT_BIN=root_v6.34.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
 WORKDIR /opt
 
 COPY packages packages
@@ -14,6 +13,7 @@ COPY packages packages
 RUN apt-get update -qq \
  && ln -sf /usr/share/zoneinfo/UTC /etc/localtime \
  && apt-get -y install $(cat packages) wget\
+ && apt install unminimize \
  && rm -rf /var/lib/apt/lists/*\
  && wget https://root.cern/download/${ROOT_BIN} \
  && tar -xzvf ${ROOT_BIN} \
