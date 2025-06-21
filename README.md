@@ -67,7 +67,7 @@ The `-v` option tells Docker to mount the home directory (`~`) to `/userhome` in
 To use graphics, make sure you are in an X11 session and run the following command:
 
 ```
-docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it --user $(id -u) rootproject/root root
+docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --rm -it --user $(id -u) rootproject/root bash -c 'root -l --web=off'
 ```
 
 On some platforms (e.g., Arch Linux) connections to the X server must be allowed explicitly by executing `xhost local:root` or an equivalent command (see e.g. [this page](https://wiki.archlinux.org/index.php/Xhost) for more information on `xhost` and its possible security implications).
@@ -83,7 +83,7 @@ xhost + $ip
 ```
 This will start XQuartz and whitelist your local IP address. Finally, you can start up ROOT with the following command:
 ```
-docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$ip:0 rootproject/root root
+docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$ip:0 rootproject/root bash -c 'root -l --web=off'
 ```
 
 ##### Windows
