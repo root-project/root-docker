@@ -8,9 +8,10 @@ Where to get help: [the ROOT forum](https://root-forum.cern.ch/)
 
 ### Latest images
 
-* [`latest`](https://github.com/root-project/root-docker/blob/6.38.00-ubuntu25.10/ubuntu2510/Dockerfile) -> [`6.38.00-ubuntu25.10`](https://github.com/root-project/root-docker/blob/6.38.00-ubuntu25.10/ubuntu2510/Dockerfile)
+* [`latest`](https://github.com/root-project/root-docker/blob/6.40.02-ubuntu26.04/ubuntu2604/Dockerfile) -> [`6.40.02-ubuntu26.04`](https://github.com/root-project/root-docker/blob/6.40.02-ubuntu26.04/ubuntu2604/Dockerfile)
 
 ### Archive
+* [`6.40.02-ubuntu26.04`](https://github.com/root-project/root-docker/blob/6.40.02-ubuntu26.04/ubuntu2604/Dockerfile)
 * [`6.38.00-ubuntu25.10`](https://github.com/root-project/root-docker/blob/6.38.00-ubuntu25.10/ubuntu2510/Dockerfile)
 * [`6.36.00-ubuntu25.04`](https://github.com/root-project/root-docker/blob/6.36.00-ubuntu25.04/ubuntu2504/Dockerfile), [`6.34.00-ubuntu24.10`](https://github.com/root-project/root-docker/blob/6.34.00-ubuntu24.10/ubuntu2410/Dockerfile)
 * [`6.34.00-ubuntu24.04`](https://github.com/root-project/root-docker/blob/6.34.00-ubuntu24.04/ubuntu2404/Dockerfile), [`6.32.04-ubuntu24.04`](https://github.com/root-project/root-docker/blob/6.32.04-ubuntu24.04/ubuntu2404/Dockerfile), [`6.32.02-ubuntu24.04`](https://github.com/root-project/root-docker/blob/6.32.02-ubuntu24.04/ubuntu2404/Dockerfile), [`6.32.00-ubuntu24.04`](https://github.com/root-project/root-docker/blob/6.32.00-ubuntu24.04/ubuntu2404/Dockerfile)
